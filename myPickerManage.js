@@ -94,9 +94,10 @@
     		defaultSelect=options.defaultSelect;//各级默认值
     		$this=$(this);
     		$this.empty();
+		$('body .myPicker').remove();//多次调用时移除前面添加的样式，抽离到css后则不需要此操作
     		//选择器样式：myPickerClearfix和myPickerSelect可以抽离到css中
     		$this.addClass('myPickerClearfix');
-    		$('body').append('<style>.myPickerSelect{display:block;float:left;min-width:160px;font-size:18px;height: 50px;line-height: 50px;border: 1px solid #84bfaa; outline-color: #16865f;margin-right: 15px;}.myPickerClearfix:after{clear: both;content: "";height: 0;visibility: hidden;display: block;}</style>');
+    		$('body').append('<div class="myPicker"><style>.myPicker{width:0;height:0;display:none}.myPickerSelect{display:block;float:left;min-width:160px;font-size:18px;height: 50px;line-height: 50px;border: 1px solid #84bfaa; outline-color: #16865f;margin-right: 15px;}.myPickerClearfix:after{clear: both;content: "";height: 0;visibility: hidden;display: block;}</style></div>');
     		
     		var thisData=getData( defaultSelect,SelectDataSource);
     		for(var i in defaultSelect){
